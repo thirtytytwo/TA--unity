@@ -7,7 +7,6 @@ Shader "Thirtytwo/GuiltyGear"
         _LimMap("lim map",2D) = "white"{}
         _SssMap("sss map",2D) = "white"{}
 
-        _ToonHold("光照阈值", Range(0,1)) = 0
         _Glossy("高光指数", Range(0,255)) = 1
     }
     SubShader{
@@ -52,7 +51,6 @@ Shader "Thirtytwo/GuiltyGear"
                 float4 _BaseMap_ST;
                 float4 _LimMap_ST;
                 float4 _SssMap_ST;
-                float _ToonHold;
                 float _Glossy;
             CBUFFER_END
 
@@ -74,19 +72,17 @@ Shader "Thirtytwo/GuiltyGear"
                 //参数设置
                 //贴图参数
                 half lineColor = light.a;
-                half shadowThreshold = light.g * v.vertexcolor.r;
+                half shadowThreshold = light.g;
+                half ao = v.vertexcolor.r;
                 //漫反射参数
                 float3 normal = normalize(v.normalWS);
                 Light mainLight = GetMainLight();
                 half3 lightDir = normalize(mainLight.direction);
                 //漫反射
-                half NdotL = dot(normal,lightDir)*0.5 + 0.5;
-                half lambert = saturate(NdotL);
-                half3 brightColor = base.rgb * lambert;
-                half3 darkColor = base.rgb * shadow.rgb;
-                float shadowContrast = step(shadowThreshold,NdotL);
-                shadowThreshold = 1 - shadowThreshold + shadowContrast;
-                half3 final_Diffuse = lerp(darkColor,brightColor,shadowThreshold);
+                half NdotL = dot(normal,lightDir);
+                half half_Lambert = NdotL * 0.5 + 0.5;
+                half toon_Diffuse = saturate((half_Lambert * ao + shadowThreshold));
+                half3 final_Diffuse = lerp(shadow.rgb,base.rgb,toon_Diffuse);
                 return half4(final_Diffuse,1);
                 //高光
 
