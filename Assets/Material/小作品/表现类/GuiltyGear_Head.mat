@@ -65,6 +65,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _LightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _LimMap:
         m_Texture: {fileID: 2800000, guid: f8e71bd156de1184092039baaa79a702, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -82,6 +86,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ShadowMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -107,38 +115,61 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - MetallicStepSpecularWidth: 0.5
     - _AlphaClip: 0
     - _Blend: 0
+    - _BodySpecularIntensity: 0.8
+    - _BodySpecularWidth: 0.5
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
+    - _DetailIntensity: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _FACESHADOWTEX: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
-    - _Glossy: 1
+    - _Glossy: 128
     - _GlossyReflections: 0
+    - _HeadSpecularIntensity: 0.8
+    - _HeadSpecularWidth: 0.5
+    - _LayerMaskStep: 35
+    - _LightTreshold: 0.5
     - _Metallic: 0
+    - _MetallicStepSpecularIntensity: 0.8
+    - _MetallicStepSpecularWidth: 0.5
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0.1
     - _Parallax: 0.005
     - _QueueOffset: 0
+    - _RampOffset: 0
     - _ReceiveShadows: 1
+    - _RimHold: 0.6
+    - _RimIntensity: 0.7
+    - _RimWidth: 0.5
+    - _ShadowIntensity: 0.7
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
+    - _SpecularIntensity: 1
+    - _SpecularPower: 15
     - _SrcBlend: 1
     - _Surface: 0
     - _ToonHardness: 0
-    - _ToonHold: 0
+    - _ToonHold: 0.6
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Diffuse: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LightDirRim: {r: 3, g: 3, b: 1, a: 1}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
